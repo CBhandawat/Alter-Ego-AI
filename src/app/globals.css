@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: #f0f0f0;
+  font-family: 'Courier New', monospace;
+}
+
+.chat-header {
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+  background: #111;
+}
+
+
+.glitch {
+  position: relative;
+  font-size: 1.5rem;
+  color: #0ff;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.glitch::before {
+  animation: glitchTop 1s infinite linear alternate-reverse;
+  color: #f0f;
+  top: -2px;
+}
+
+.glitch::after {
+  animation: glitchBottom 1s infinite linear alternate-reverse;
+  color: #0f0;
+  top: 2px;
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+
+  50% {
+    clip: rect(0, 9999px, 5px, 0);
+  }
+
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+
+  50% {
+    clip: rect(5px, 9999px, 9999px, 0);
+  }
+
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+}
+
+.alter-ego-description {
+  color: #aaa;
+  font-size: 0.85rem;
+}
